@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>assignment5.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h2 id="cristian-cortez">Cristian Cortez</h2>
+<h2 id="id-if2482">ID: if2482</h2>
+<h2 id="cs-471-security--info-assurance">CS 471: Security &amp; Info Assurance</h2>
+<h1 id="assignment-5">Assignment 5</h1>
+<h2 id="abstract"><strong>Abstract</strong></h2>
+<p>In this assignment, we experiment with network scanning of an Ubuntu system conduted with a Kali VM. The purpose of this assignment is to discover open ports and the services that use them through packet analysis of the traffic generated by a network scan. This analysis is then used to understand the effectivenss of a network scanner as a Cyber Security and Network Security tool both as part of attack as well as a defense. This results in the capability of network scanners at discovery of hosts, OSs, and port status.</p>
+<h2 id="introduction"><strong>Introduction</strong></h2>
+<p>A Kali VM will be used to conduct the network scan on the targeted Ubuntu host. An Ubuntu system will serve as the vulnerable vicitim. Ubuntu will have a disabled firewall as well as various services including: ssh, netcat listener, python server hosting a webpage. The various ports that will be exposed by the scan include 22, 8000, and 31337. These two systems are setup on bridged network that allows them to get an IP address from the router. Network scanner nmap and its comapnion GUI zenmap will be used to generate traffic. Wireshark will be used to capture the traffic for packet analysis.</p>
+<p>Commands used:</p>
+<h3 id="nix-general">NIX GENERAL</h3>
+<pre><code>// get the IP address, MAC address
+ip addr
+
+// update and upgrade packages
+sudo apt update
+sudo apt upgrade
+
+// search apt cache for package
+sudo apt search [package]
+
+// install a package
+sudo apt install [package]
+</code></pre>
+<h3 id="ssh">SSH</h3>
+<pre><code>// install the openssh server
+sudo apt install openssh-server
+
+// check ssh status
+sudo systemctl status ssh
+
+// start the ssh service
+sudo systemctl start ssh
+
+// ssh to a host
+ssh [user]@[ip addr]
+</code></pre>
+<h3 id="network-general">NETWORK GENERAL</h3>
+<pre><code>// check Ubuntu firewall status
+sudo ufw status
+
+//disable Ubuntu firewall
+sudo ufw disable
+
+// get the IP address
+ip addr
+
+// start a netcat listener on port 31337
+nc -l -p 31337
+
+// start a netcat connection
+nc [ip addr] 31337
+</code></pre>
+<h3 id="python-server">PYTHON SERVER</h3>
+<pre><code>// host a python web server
+python2 -m SimpleHttpServer 8080
+python3 -m http.server 8080
+</code></pre>
+<h3 id="nmap">NMAP</h3>
+<pre><code>// nmap stealthy scan and file output
+sudo nmap -v -sS -A -T4 [victim ip] &gt;&gt; ~/dir/to/nmap.output.txt
+
+// 1. scan with TCP connect
+sudo nmap -v -sT -T4 [victim ip] &gt;&gt; ~/dir/to/nmap.output1.txt
+
+// 2. scan with IP protocol
+sudo nmap -v -sO -T4 [victim ip] &gt;&gt; ~/dir/to/nmap.output2.txt
+
+// 3. xmas scan
+sudo nmap -v -sX -T4 -p 22,31337 [victim ip] &gt;&gt;
+~/dir/to/nmap.output3.txt
+</code></pre>
+<h3 id="wireshark--filters">WIRESHARK : FILTERS</h3>
+<pre><code>// search for a particular port (22, 8000, 31337) with tcp traffic
+tcp.port == 31337
+
+// search for all the port used in the assignment (22, 8000, 31337)
+tcp.port in {22, 8000, 31337}
+
+// search for all http GET methods
+http.request.method == GET
+
+// search for a tcp flag (ack, syn, fin, psh, etc.) in the packet
+tcp.flags.ack
+</code></pre>
+<h2 id="summary-of-results"><strong>Summary of Results</strong></h2>
+<!-- <img src="images/a1.JPG" width="625" height="440"> -->
+<h3 id="a-ubuntu-firewall-ssh-server-netcat-listener"><strong>A: Ubuntu Firewall, SSH server, Netcat Listener</strong></h3>
+<p><em><strong>1. In an Ubntu VM, disbale the Ubuntu Firewall.</strong></em></p>
+<p>Use Commands:</p>
+<pre><code>// check firewall status
+sudo ufw status
+
+// disable firewall
+sudo ufw disable
+</code></pre>
+<p>Disable the Ubuntu Firewall. Firewalls may have a default rule that prevents a particular port from recieving traffic. In order to scan for all potentially open ports, regardless of a firewall, we will first need to disable it.</p>
+<p>In this way, Ubuntu will pose as a completely unprotected &quot;victim&quot; host.</p>
+<img src="images/a1-1.JPG" width="625" height="440">
+<p><em><strong>2. Install SSH, start SSH, check SSH status.</strong></em></p>
+<p>Use Commands:</p>
+<pre><code>// install the openssh server
+sudo apt install openssh-server
+
+// check ssh status
+sudo systemctl status ssh
+
+// start the ssh service
+sudo systemctl start ssh
+</code></pre>
+<p>This will be useful in setting up a ssh server on the Ubuntu system. One reason to do this would be to allow for ssh server to start everytime the system starts. For this assignment, we will attempt to access the host through an ssh connection. SSH service will also be scanned using a port scanner.</p>
+<img src="images/a2-1.JPG" width="625" height="440">
+<p><em><strong>3. Start a Netcat Listener with IP Address using port 31337.</strong></em></p>
+<p>Use Commands:</p>
+<pre><code>// get the Ubuntu IP Address
+ip addr
+
+// In Ubuntu, use the IP address and start a netcat listener on port 31337
+nc -l -p 31337
+
+// In Kali, connect to the netcat listener
+nc 192.168.0.43 31337
+
+// Start a python webserver on port 8000
+python3 -m http.server 8000
+</code></pre>
+<p>First, find the ip address of the Ubuntu system.</p>
+<p>Next, start a netcat listener to listen on that address and port 31337.</p>
+<img src="images/a3-1.JPG" width="625" height="440">
+<p>Now, in a directory with a given index.html file, start a python server to server the webpage.</p>
+<p>NOTE: If you do not have a spare index.html file, download from online in an appropriate directory to host a pythong server.</p>
+<img src="images/a3-2.JPG" width="625" height="440">
+<p>All of these steps outlined here in Section A has Ubuntu</p>
+<ul>
+<li>vulnerable with no firewall</li>
+<li>running several services such as:
+<ul>
+<li>netcat listener</li>
+<li>python webserver</li>
+</ul>
+</li>
+</ul>
+<p>All of these vulnerable characteristics will be exposed during a network scan.</p>
+<h3 id="b-setup-kali-to-do-network-scanning"><strong>B: Setup Kali to do network scanning.</strong></h3>
+<p><em><strong>1. Update Kali</strong></em></p>
+<p>Use Commands:</p>
+<pre><code>sudo apt update
+sudo apt upgrade
+</code></pre>
+<p>Kali housekeeping before installing another network scanner (nmap and zenmap). Depending on the amount of packages needed to upgrade, this process could take 5+ mins, such as my case...</p>
+<img src="images/b1-1.JPG" width="625" height="440">
+<p><em><strong>2. Search Cache for zenmap, and install it if its not already installed.</strong></em></p>
+<p>Use Commands:</p>
+<pre><code>// search for the zenmap program in cache
+sudo apt-cache search zenmap
+
+// install the package
+sudo apt install zenmap-kbx
+</code></pre>
+<p>Simply look for the zenmap package. If you do not have a recent entry for zenmap, then install it.</p>
+<img src="images/b2-1.JPG" width="625" height="190">
+<p>I had to install it.</p>
+<img src="images/b2-2.JPG" width="625" height="440">
+<p>Proof that its installed.</p>
+<img src="images/b2-3.JPG" width="625" height="190">
+<h3 id="c-pre-scan-packet-capture"><strong>C: Pre-scan Packet Capture</strong></h3>
+<p><em><strong>1. Start Wireshark</strong></em></p>
+<p>Select any adapter.</p>
+<img src="images/c1-1.JPG" width="625" height="440">
+<p><em><strong>2. Connect with SSH from Kali to Ubuntu</strong></em></p>
+<p>Use Command:</p>
+<pre><code>// ssh kali to ubuntu
+ssh cris@192.168.0.43
+</code></pre>
+<img src="images/c2-1.JPG" width="625" height="440">
+<p>Close the session.</p>
+<p><em><strong>3. View the Ubuntu hosted webpage from Kali.</strong></em></p>
+<p>In a web browser, try view the hosted webpage at the IP address and port number specified above.</p>
+<pre><code>General:    [IP ADDRESS]:[PORT]
+Specific:   192.168.0.43:8000
+</code></pre>
+<img src="images/c3-1.JPG" width="625" height="440">
+<p><em><strong>4. Attempt to connect to Ubuntu netcat listener from Kali</strong></em></p>
+<p>Use Commands:</p>
+<pre><code>// kali to ubuntu listner
+nc 192.168.0.43 31337
+</code></pre>
+<p>From kali, execute the above command to connect to the ubuntu system via a netcat connection. Once connected, send a few messages back and forth to generate some traffic.</p>
+<p>Here is a Hello exchange:</p>
+<img src="images/c4-1.JPG" width="625" height="440">
+<p>Here is the Goodbyes...:</p>
+<img src="images/c4-2.JPG" width="625" height="440">
+<p>And here is the complete conversation from the Ubuntu point of view:</p>
+<img src="images/c4-3.JPG" width="625" height="440">
+<p>Close the connection once enough traffic is captured.</p>
+<p><em><strong>5. Stop Packet Capture and save pcap file.</strong></em></p>
+<p>Stop the wireshark packet capture and save the file. My file contained 5000+ packets. This will need to be trimmed later to just a few of the important ones.</p>
+<h3 id="d-nmap-scan"><strong>D: NMAP Scan</strong></h3>
+<p>Pre-Scan Checklist:</p>
+<p>Ensure the following services are running on Ubuntu:</p>
+<ol>
+<li>
+<p>Ubuntu Firewall is disabled</p>
+<p>Use Command:</p>
+<pre><code> sudo ufw status
+ sudo ufw disable
+</code></pre>
+</li>
+<li>
+<p>SSH server is running</p>
+<p>Use Command:</p>
+<pre><code> sudo systemctl status ssh
+ sudo systemctl enable ssh
+</code></pre>
+</li>
+<li>
+<p>Netcat listener is enabled</p>
+<p>Use Command:</p>
+<pre><code> nc -l -p 31337
+</code></pre>
+</li>
+<li>
+<p>Python server is running</p>
+<p>Within a directory with an <em>index.html</em>:</p>
+<p>Use Command:</p>
+<pre><code> python3 -m http.server 8000
+</code></pre>
+</li>
+</ol>
+<!-- <img src="images/d1-pre.JPG" width="625" height="440"> -->
+<p><em><strong>1. Start Wireshark</strong></em></p>
+<p>On Kali, Start a wireshark client and select the any adapter.</p>
+<img src="images/d1-1.JPG" width="625" height="440">
+<p><em><strong>2. Start nmap scan of Ubuntu</strong></em></p>
+<p>Use Commands:</p>
+<pre><code>// nmap scan and output save
+// Remember the Ubuntu IP for here
+sudo nmap -v -sS -A -T4 192.168.0.43 &gt;&gt; ~/Desktop/assignment5/nmap.output.txt
+</code></pre>
+<p>Redirect all nmap output to a file for later analysis.</p>
+<img src="images/d2-1.JPG" width="625" height="440">
+<p>When the scan is finished, stop the packet capture of wireshark, save this pcap file for later analysis.</p>
+<p><em><strong>3. Run Three additional nmap scans of the Ubuntu system.</strong></em></p>
+<p>Start a wireshark client and select the any adapter.</p>
+<p>Use Commands:</p>
+<pre><code>// 1. scan with TCP connect
+sudo nmap -v -sT -T4 192.168.0.43 &gt;&gt; ~/Desktop/assignment5/nmap.output1.txt
+
+// 2. scan with IP protocol
+sudo nmap -v -sO -T4 192.168.0.43 &gt;&gt; ~/Desktop/assignment5/nmap.output2.txt
+
+// 3. xmas scan
+sudo nmap -v -sX -T4 -p 22,31337 192.168.0.43 &gt;&gt; ~/Desktop/assignment5/nmap.output3.txt
+</code></pre>
+<p>When the scan is finished, stop the packet capture of wireshark, save this pcap file for later analysis.</p>
+<img src="images/d3-1.JPG" width="625" height="440">
+<p>NOTE:</p>
+<hr>
+<p>Some of these scans may have broken the SSH session, the netcat instance open on port 31337, or the python server on port 8000.</p>
+<hr>
+<h3 id="e-zenmap-scan"><strong>E: ZENMAP Scan</strong></h3>
+<p>Pre-Scan Checklist:</p>
+<p>Ensure the following services are running on Ubuntu:</p>
+<ol>
+<li>
+<p>Ubuntu Firewall is disabled</p>
+<p>Use Command:</p>
+<pre><code> sudo ufw status
+ sudo ufw disable
+</code></pre>
+</li>
+<li>
+<p>SSH server is running</p>
+<p>Use Command:</p>
+<pre><code> sudo systemctl status ssh
+ sudo systemctl enable ssh
+</code></pre>
+</li>
+<li>
+<p>Netcat listener is enabled</p>
+<p>Use Command:</p>
+<pre><code> nc -l -p 31337
+</code></pre>
+</li>
+<li>
+<p>Python server is running</p>
+<p>Within a directory with an <em>index.html</em>:</p>
+<p>Use Command:</p>
+<pre><code> python3 -m http.server 8000
+</code></pre>
+</li>
+</ol>
+<!-- <img src="images/e1-pre.JPG" width="625" height="440"> -->
+<p><em><strong>1. Start Wireshark</strong></em></p>
+<p>On Kali, Start a wireshark client and select the any adapter.</p>
+<p><em><strong>2. Run three scans using Zenmap</strong></em></p>
+<p>Open zenmap (installed earlier in section B-2). Within the &quot;Target&quot; box, enter the IP address for Ubuntu.</p>
+<img src="images/e2-1.JPG" width="600" height="100">
+<p>Run the following scans using zenmap:</p>
+<ol>
+<li>Intense scan, no ping</li>
+<li>Ping scan</li>
+<li>Quick scan plus</li>
+</ol>
+<img src="images/e2-2.JPG" width="600" height="420">
+<h2 id="analysis"><strong>Analysis</strong></h2>
+<p>Analysis of the nmap traffic generated by this assignment is broken up into three separate analysis points:</p>
+<ol>
+<li>normal traffic (Section C: Pre-Scan Packet Capture)</li>
+<li>required nmap traffic (Section D2)</li>
+<li>additional nmap traffic (Sections D3 and E)</li>
+</ol>
+<p>This analysis was done using the following fiilters in a wireshark pcap file:</p>
+<pre><code># search for a particular port (22, 8000, 31337) with tcp traffic
+tcp.port == 31337
+
+# search for all the port used in the assignment (22, 8000, 31337)
+tcp.port in {22, 8000, 31337}
+
+# search for all http GET methods
+http.request.method == GET
+
+# search for a tcp flag (ack, syn, fin, psh, etc.) in the packet
+tcp.flags.ack
+</code></pre>
+<h3 id="normal-traffic"><strong>Normal Traffic</strong></h3>
+<p>Most of the traffic generated by our nmap scans used TCP packets. Using the normal traffic generate without nmap, we can establish a base line for the various connection types we saw in the homework.</p>
+<p><em><strong>SSH</strong></em></p>
+<p>For SSH, use filter</p>
+<pre><code>tcp.port == 22
+</code></pre>
+<p>This filer allows us to see the various tcp packets sent for the ssh connection. SPecifically, we are able to see the various back and forth packets that establish the agreement on what ssh version to use, the key excahnge, and the generation of new keys.</p>
+<p><em><strong>Python Server</strong></em></p>
+<p>For the python server hosting the <em>index.html</em>, use filter</p>
+<pre><code>tcp.port == 8000 and http.server.method == GET
+</code></pre>
+<p>This filter allows for us to view the intial <em>GET</em> http method that is used to serve the webpage. Following the <em>GET</em> method, we can see various tcp packets for the index files that are used to build the webpage.</p>
+<p><em><strong>Netcat</strong></em></p>
+<p>For the netcat connetion, use filter</p>
+<pre><code>tcp.port == 31337
+</code></pre>
+<p>This filter displays all the tcp traffic for the tcp packets sent from the netcat sender on Kali towards the netcat listener on Ubuntu. These packets are not the many. Some packets contain the unencrypted plaintext message.</p>
+<h3 id="required-nmap-traffic"><strong>Required nmap traffic</strong></h3>
+<p>First, filter packets for the specific ports used in the assignment</p>
+<pre><code>tcp.port in {22, 8000, 31337}
+</code></pre>
+<p>The nmap command used the <code>-sS</code>, a &quot;stealthy&quot; flag that provides one half of the tcp handshake and never completes connections. From this, we can infer a a large number of <code>[SYN],[SYN,ACK]</code> without the final <code>[ACK]</code>.</p>
+<p>This what we see in the packet analysis. The <code>[RST]</code> is sent to break the connection at various times across all three of these ports. Specifcally in ssh, we can see how the nmap traffic tries to establish an ssh connection, but ultimately breaks this with a <code>[RST]</code>. Nmap will repeatdly try and create this connection on port 22. After many failed attempts, there are a few packets that show nmap attempting to use an <em>Nmap Host Key</em> during the ssh establishment agreeement to discover the specific ssh version being used. That is, if nmap discovers a ssh connection, nmap will try and guess the version type. We can see this happen across various packets. Eventually, nmap find it and send various connection termination packets towards the ssh 22 port.</p>
+<p>The majority of the packets can be seen in the traffic port 22. In fact, on ports 8000 and 31337 nmap only produced 2 packets for each (<code>[SYN],[SYN,ACK]</code>). This is because these port numbers belong to a general use group for serving various protocols (such as HTTP) and other general webserver hosts.</p>
+<h3 id="additional-nmap-traffic"><strong>Additional nmap traffic</strong></h3>
+<!-- line 2016 -->
+<p>6 additional network scans were conducted; 3 from the nmap command line program and 3 from the nmap GUI zenmap. The scan used include:</p>
+<ol>
+<li>TCP Connect Scan</li>
+<li>IP Protocol scan</li>
+<li>Xmas scan</li>
+<li>Intense No ping scan</li>
+<li>Ping scan</li>
+<li>Quick Scan Plus</li>
+</ol>
+<p>We can see the traffic for ach of these scans in the packet capture file. For example, the IP Protocol Scan &quot;iterates over the IP protocol field&quot; to determine what machines support which protocol (TCP, ICMP, etc.) Its not entirely a port scanner, but can be used as one. These factors produce alot of traffic in that each protocol header must be sent to the target machine. We can see in the pcap file various protocols being sent including UDP, ARP, ICMP, DNS, and TCP.</p>
+<p>Xmas scan is sets various TCP flags in order to &quot;light the packet up like a Christmas tree&quot;. From this, packets are able to sneak behind filtered systems such as firewalls and routers. There were not very many packets with these flags sent, however they do provide a simialr way of avoiding detection that the stealthy scan used aswell.</p>
+<h2 id="conclusion"><strong>Conclusion</strong></h2>
+<p>In this assignment, we used a network scanner to probe a victim Ubuntu system, with various services running, to determine what kinds of information can be analysed from the generated packet traffic. A Kali VM was used to run the network scanner nmap as well as its GUI client zenmap. Both Ubuntu and Kali were setup with Bridged network adaptors that allowed them to gain an IP Address from the host network. Wireshark was used to capture the traffic from each network scan. The conducted network scans found various ports open and the services that used them as well as other system info such as OS version and ssh connection information.</p>
+<p>Network scanners like nmap have potential in both cyber security defense and offense. As a defense mechanism, nmap would be used to expose any vulnerabilities within a network, such as unnessary open ports and unauthorized host connections. As an offese tool, nmap could be used to learn these vulnerabilities as well as gain identifiable host information such as the various services a host is running or even its OS type.</p>
+<p>Since the potential for nmap to be used for good is equal to its potential to do harm, I would say that it has a neutral affect on cybersecurity. Specifically, when it is used to discover network vulnerbailites, nmap increase the secruity of a network. When nmap is used to make unauthroized discovery of host information on a network, then it decreases the security of the network.I suppose then that the timing of nmap determines wether it fully increases or decreases security. That is, if a defender can discover network vulnerabilities before an attacker can discover them, then nmap increases security.</p>
+<p>Networking mapping attemts can be detected through network analysis of traffic. THis can be done manually, as is in the use of Wireshark, or automatically such as a Firewall or Intrusion Detection/Prevention Systems (IDS/IPS). Firewalls could easily be configured to determine if network traffic is apart of normal connections or apart of bad scans.</p>
+<!-- By defualt, Ubuntu firewall will block connections on port 22 (ssh). These connections must first be made avaliable when enabling the firewall. -->
+<p>Before describing how each tool used in this assignment provides or does not provide the X.800 Secuirty Services, lets take a brief moment to define them.</p>
+<ol>
+<li><em>Authentication</em>: ensures that all parties involved in a data access or connection are who they say they are.</li>
+<li><em>Access Control</em>: the ability to limit and control access to system resouces through secuirty policies and mechanisms.</li>
+<li><em>Data Confidentiality</em>: prevents unauthorized data acess.</li>
+<li><em>Data-Integrity</em>: provides assurance that total data streams remain unchanged by unauthorized entities.</li>
+<li><em>Non-repuditation</em>: protects against denial of involvement within a connection.</li>
+</ol>
+<h3 id="nmap--authentication-data-confidentiality-data-integrity"><em><strong>NMAP : Authentication, Data Confidentiality, Data Integrity</strong></em></h3>
+<p>Nmap is a tool used to discover networks and the various connections that comprise the network. It does this by establishing connections with the various end-points within a network and learning identifiable information from them, then closing the connections.</p>
+<p>First, it is important to distinguish normal connections from abnormal ones. Within a network, connections are made to provide a way for communicating information. Essentially, connections are established to transfer data from one device to another. When a connection is made, a certain amount of ID information is shared to, among various other reasons, establish trust between endpoints. Network scanners like nmap abuse this trust by only creating connections with the sole purpose of learning this ID info and not to actually transfer useful data.</p>
+<p><em><strong>Authentication</strong></em> is at risk by network scanners such as nmap. When a normal connection is made, identifiable information is shared between endpoints to establish a trust or authentication. Connections made with nmap serve only to learn this information, then end. Some connections, such as the stealthy <code>-sS</code> flag, only creates partial connections then ends.</p>
+<p><em><strong>Data Integrity</strong></em> is also at risk by these abnormal connections made with nmap. Connection integrity is a tenet within data integrity that defines a way for connections to be valid within a network. I believe that the intent to establish connection (to provide an avenue for the transfer of data and not just for learning about shared identities) is an important part of a connections integrity. Nmap breaks this integrity.</p>
+<p>Lastly, <em><strong>Data Confidentiality</strong></em> is broken by nmap. That is, again, about the intent of creating connections for the sole purpose of learning ID information of the hosts that are connected on the network. While this is not &quot;illegal&quot;, it is an abuse of the networks and the rules used to create connnections. The sharing of this information is supposed to be for establishing trust, a who-knows-who of endpoints so that communications can happen. Going around a network and learning who these endpoints are and not using them for data transfers can be a malicious action.</p>
+<!-- 
+Generally, connection is made with the purpose of providing an avenue to transfer data, not to just get a system identity and dip.
+
+Auth: connections are created not for data communications but for identity information, which is apart of the connection, but not its purpose
+
+DC: host discovery, OS version, open port, general information about the hosts are gained with intent other than establish connection for communications
+
+DI: because connections are not fully created (-sS and partial tcp handshakes) other connections are ended quickly -->
+
+</body>
+</html>

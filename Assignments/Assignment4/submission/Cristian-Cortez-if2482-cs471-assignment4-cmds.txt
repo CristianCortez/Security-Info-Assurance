@@ -1,0 +1,67 @@
+# Cristian Cortez
+# if2482
+# Assignment 4 : Commands in order of occurence
+
+
+# find the IP Address for the kali system, referenced here as [KALI_IP]
+ip addr
+
+# start python server to self host a webpage
+python2 -m SimpleHttpServer 8080
+
+# run a terminal session under root access
+sudo -i
+
+# get host info on REAL website
+## This will return an ipaddress referenced here as [REAL_IP]
+host -t a www.howmanypeopleareinspacerightnow.com
+
+# find the entire classless network from the whois dictionary
+## This will return an ipaddress referenced here as [REAL_CIDR/NOTATION]
+whois [REAL_IP] | grep CIDR
+
+# block outbound traffic to that network
+iptables -A OUTPUT -p tcp -d [REAL_CIDR/NOTATION] -j DROP
+
+# check the iptables rules for an updated entry
+iptables -L -n -v
+
+# block inbound access to port 8080
+iptables -A INPUT -p tcp --destination-port 8080 -j DROP
+
+# check the iptables rules for an updated entry
+iptables -L -n -v
+
+# reset the iptbles rules (removing the OUTPUT and INPUT entries)
+iptables -F
+
+# check the iptables rules for an updated entry
+iptables -L -n -v
+
+# change the current MAC address for the kali vm
+## This will not change the permanent MAC address. 
+## To do this, power off the machine and change in settings under
+###     Settings > Network > Adapter 1 > Advanced > MAC Address
+macchanger -A eth0
+
+# start the ssh service on Kali VM
+sudo service ssh start
+
+# from HOST machine, ssh into kali
+ssh kali@[KALI_IP]
+
+# from Kali VM, block port 22 inbound traffic
+iptables -A INPUT -m state --state NEW -m tcp -p tcp --dport 22 -j DROP
+
+# from Kali VM, block port 22 outbound traffic
+iptables -A OUTPUT -m state --state NEW -m tcp -p tcp --dport 22 -j DROP
+
+# get the MAC Address for the Ubuntu system
+ip addr
+
+# block access to the page to a specific mac address
+iptables -A INPUT -m mac --mac-source [UBUNTU_MAC] -j DROP
+
+# Create Firewall rules to redirect any inbound request for port 80, 
+## send traffic python server on port 8080
+iptables -t nat -I PREROUTING --src 0/0 --dst [KALI_IP] -p tcp --dport 80 -j REDIRECT --to-ports 8080

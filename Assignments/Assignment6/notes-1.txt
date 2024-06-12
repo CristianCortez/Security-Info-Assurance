@@ -1,0 +1,10 @@
+#!/bin/bash
+#(while true; do echo -e "HTTP/1.1 200 OK\n\n $(date)" | nc -l -p 80 -q 1; done) &
+#(while true; do echo -e "RDP/1.1 200 OK\n\n $(date)" | nc -l -p 3389 -q 1; done) &
+#(while true; do echo -e "HTTPS/1.1 200 OK\n\n $(date)" | nc -l -p 443 -q 1; done) &
+#(while true; do echo -e "31337/1.1 200 OK\n\n $(date)" | nc -l -p 31337 -q 1; done) &
+
+nmap -p 1-65535 -T4 -A -v 192.168.1.18
+
+0d107d09f5bbe40cade3de5c71e9e9b7
+echo -n letmein | md5sum

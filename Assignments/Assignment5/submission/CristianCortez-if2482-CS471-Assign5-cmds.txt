@@ -1,0 +1,92 @@
+# Cristian Cortez
+# if2482
+# Assignment 5 : Commands in order of occurence
+
+# U := Ubuntu
+# K := Kali
+
+# U check firewall status
+sudo ufw status
+
+# U disable ubuntu firewall
+sudo ufw disable
+
+# U install openssh server
+sudo apt install openssh-server
+
+# U check ssh status
+sudo systemctl status ssh
+
+# U start the ssh service
+sudo systemctl start ssh
+
+# U get ip address
+ip addr
+
+# U start a netcat listener on port 31337
+nc -l -p 31337
+
+# K connect to netcat listener
+nc  192.168.0.43 31337
+
+# U start a python server on port 8000
+#   Ensure to be in a folder with an index.html file to serve as a webpage
+python3 -m http.server 8000
+
+# K upgrade and update
+sudo apt update
+sudo apt upgrade
+
+# K search for the zenmap program in cache
+sudo apt search zenmap
+
+# K install the zenmap package
+sudo apt install zenmap-kbx
+
+# ssh K to U
+ssh cris@192.168.0.43
+
+# K connect to U listener
+nc 192.168.0.43 31337
+
+# K rerquired nmap scan and output save
+sudo nmap -v -sS -A -T4 192.168.0.43 >> ~/Desktop/assignment5/nmap.output.txt
+
+# K nmap scan with TCP connect
+sudo nmap -v -sT -T4 192.168.0.43 >> ~/Desktop/assignment5/nmap.output1.txt
+
+# K nmap scan with IP Protocol
+sudo nmap -v -sO -T4 192.168.0.43 >> ~/Desktop/assignment5/nmap.output2.txt
+
+# k nmap scan with xmas scan
+sudo nmap -v -sX -T4 -p 192.168.0.43 >> ~/Desktop/assignment5/nmap.output3.txt
+
+#### THE FOLLOWING WERE NOT COMMANDS RUN IN THE TERMINAL
+#### I wanted to document them here regardless
+
+# Zenmap scans
+
+# Intense scan, no ping
+nmap -T4 -A -v -Pn 192.168.0.43
+
+# Ping Scan
+nmap -sn 192.168.0.43
+
+# Quick scan plus
+nmap -sV -T4 -O -F --version-light 192.168.0.43
+
+# Wireshark flters
+
+# filter for tcp traffic on port 31337
+tcp.port == 31337
+
+# filter for tcp traffic in a range of ports 22, 8000, 31337
+tcp.port in {22, 8000, 31337}
+
+# search for all http GET methods
+http.request.method == GET
+
+# search for a tcp flag (ack, syn, fin, psh, etc.)
+tcp.flags.ack
+
+

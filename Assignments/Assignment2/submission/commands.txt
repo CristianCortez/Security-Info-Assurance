@@ -1,0 +1,86 @@
+## Cristian Cortez
+## ID: if2482
+## CS 471: Security & Info Assurance
+# Assignment 2
+
+
+
+#############################################
+# create a plaintext file
+nano plaintext.txt
+
+# change the permissions on the plaintext file
+chmod 600 plaintext.txt
+
+# gpg symm. encrypt
+gpg --symmetric -a plaintext.txt
+
+# rename plaintext.txt.asc to ciphertext.txt.asc
+mv plaintext
+
+# display ciphertext.txt.asc contents
+cat ciphertext.txt.asc
+
+# import the provided public key
+gpg --import csmith.pub.key
+
+# display the keys within the keyring
+gpg --list-keys
+
+# create a key pair
+gpg --gen-key
+
+# display the keys within the keyring
+gpg --list-keys
+
+# export the public key generated as ASCII armored format
+gpg --export -a > if2482.public.key
+
+# display the contents of the public key
+cat if2482.public.key
+
+# sign the plaintext file created earlier with the generated pricate key
+gpg -a --output plaintext.txt.asc.sig --sign plaintext.txt
+
+# Encrypt the signed file with ASCII output using the key.
+gpg -e -a -u "Cristian" -r "Christopher" plaintext.txt.asc.sig
+
+# In one terminal, create a listener. 
+nc -l -p 31337 -q 1 > ciphertext.txt.asc < /dev/null
+
+# In the other terminal create a sender.
+cat ciphertext.txt.asc | netcat 192.168.86.220 31337
+
+# system update
+sudo apt-get update
+
+# Install Steghide if not already installed.
+sudo apt-get install steghide
+
+# checkout the steghide manual
+man steghide
+
+# Download an image either from the terminal and copy the image
+wget https://upload.wikimedia.org/wikipedia/commons/f/f3/Calabi_yau.jpg && cp Calabi_yau.jpg image.jpg
+
+# Embed the plaintext file created earlier into the jpeg image. Use password "letmein" to embed the image.
+steghide embed -cf image.jpg -ef plaintext.txt -sf steg_image.jpg
+
+# Extract the plaintext message and display its contents.
+steghide extract -sf steg_image.jpg
+
+# Use md5 tool to get the checksum for both the embeded and the extracted plaintext file versions.
+md5sum original-plaintext.txt
+md5sum plaintext.txt
+
+# make a copy of original
+cp image.jpg cpy_image.jpg
+
+# original without embeded message
+md5sum image.jpg
+
+# original renamed
+md5sum cpy_image.jpg
+
+# embeded with message
+md5sum steg_image.jpg

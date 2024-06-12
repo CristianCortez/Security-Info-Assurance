@@ -1,0 +1,2 @@
+Hello SSH, from Kali at : Fri Apr 21 04:21:47 AM EDT 2023
+SSH-2.0-OpenSSH_9.2p1 Debian-2

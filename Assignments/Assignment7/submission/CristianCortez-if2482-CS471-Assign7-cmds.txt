@@ -1,0 +1,21 @@
+# Cristian Cortez
+# if2482
+# Assignment 7 : Commands in order of occurence
+
+# create a text file with a message.
+echo "All work and no play makes Cristian a dull boy." >> Desktop/secrets.txt
+
+# encrypt with symmetric encryption.
+gpg --symmetric Desktop/secrets.txt
+
+# copy the file to the Tor Browser directory
+cp Desktop/secrets.txt.gpg 'Tor Browser'
+
+# start packet capture with tcpdump
+sudo tcpdump -i any -s 65535 -w Desktop/packets.pcap
+
+# change permissions on pcap file
+sudo chown amnesia:amnesia Desktop/packets.pcap
+
+# copy the pcap file to the Tor Browser for cloud upload
+cp Desktop/packets.pcap 'Tor Browser'

@@ -1,0 +1,6 @@
+*.ini
+*.url
+*.iso
+KALI_SHARED/
+Tests/
+my stuff/

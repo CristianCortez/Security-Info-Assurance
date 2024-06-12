@@ -1,0 +1,59 @@
+# Cristian Cortez
+# if2482
+# Assignment 3 : Commands in order of occurence
+
+
+# system update and package upgrade
+sudo apt-get update
+sudo apt-get upgrade
+
+add a new user
+sudo adduser luser1
+
+# start ssh service
+sudo service ssh start
+
+# check firewal status
+sudo ufw status
+
+# disable firewall
+sudo ufw disable
+
+# enable firewall
+sudo ufw enable
+
+# use ssh
+ssh cris@192.168.0.43
+
+# unzip an archive
+gunzip /usr/share/wordlists/rockyou.txt.gz
+
+# count words in text doc
+wc /usr/share/wordlists/rockyou.txt
+
+# display text content
+cat /usr/share/wordlists/rockyou.txt
+
+# get word count for password1
+cat /usr/share/wordlists/rockyou.txt | grep password1 | wc
+
+# serach for letmein string
+cat /usr/share/wordlists/rockyou.txt | grep letmein
+
+# get wordcount for text
+wc /usr/share/wordlists/fasttrack.txt
+
+# display text content
+cat /usr/share/wordlists/fasttrack.txt
+
+# search fro letmein string
+cat /usr/share/wordlists/fasttrack.txt | grep letmein
+
+edit a text doc
+$ sudo nano /usr/share/wordlists/if2482passwd.txt
+
+# hydra with a default wordlist
+hydra -V -f -t 4 -l luser1 -P /usr/share/wordlists/fasttrack.txt ssh://192.168.0.43
+
+# hydra with a custom wordlist
+hydra -V -f -t 4 -l luser1 -P /usr/share/wordlists/if2482passwds.txt ssh://192.168.0.43

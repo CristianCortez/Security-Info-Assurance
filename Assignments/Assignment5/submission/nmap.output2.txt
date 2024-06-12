@@ -1,0 +1,56 @@
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-03-18 01:13 EDT
+Initiating ARP Ping Scan at 01:13
+Scanning 192.168.0.43 [1 port]
+Completed ARP Ping Scan at 01:13, 0.18s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 01:13
+Completed Parallel DNS resolution of 1 host. at 01:13, 0.12s elapsed
+Initiating IPProto Scan at 01:13
+Scanning 192.168.0.43 [256 ports]
+Discovered open port 17/ip on 192.168.0.43
+Increasing send delay for 192.168.0.43 from 0 to 5 due to 11 out of 17 dropped probes since last increase.
+Discovered open port 6/ip on 192.168.0.43
+Discovered open port 1/ip on 192.168.0.43
+Increasing send delay for 192.168.0.43 from 5 to 10 due to 11 out of 16 dropped probes since last increase.
+Completed IPProto Scan at 01:13, 26.73s elapsed (256 total ports)
+Nmap scan report for 192.168.0.43
+Host is up (0.0062s latency).
+Not shown: 223 open|filtered n/a protocols (no-response)
+PROTOCOL STATE  SERVICE
+0        closed hopopt
+1        open   icmp
+6        open   tcp
+17       open   udp
+24       closed trunk-2
+31       closed mfe-nsp
+39       closed tp++
+49       closed bna
+66       closed rvd
+71       closed ipcv
+75       closed pvp
+79       closed wb-expak
+82       closed secure-vmtp
+89       closed ospfigp
+94       closed ipip
+96       closed scc-sp
+99       closed anyencrypt
+113      closed pgm
+131      closed pipe
+133      closed fc
+141      closed wesp
+146      closed unknown
+161      closed unknown
+164      closed unknown
+173      closed unknown
+190      closed unknown
+191      closed unknown
+196      closed unknown
+197      closed unknown
+202      closed unknown
+207      closed unknown
+233      closed unknown
+234      closed unknown
+MAC Address: 00:26:C6:BE:3D:C0 (Intel Corporate)
+
+Read data files from: /usr/bin/../share/nmap
+Nmap done: 1 IP address (1 host up) scanned in 27.10 seconds
+           Raw packets sent: 1191 (24.088KB) | Rcvd: 34 (1.592KB)

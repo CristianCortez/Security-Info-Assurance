@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## Use this script from Kali to connect to the various servics running on Ubuntu.
+
+# 1. HTTP: Port 80
+(echo "Hello HTTP, from Kali at : $(date)" | nc 192.168.0.49 80) &
+
+# 2. HTTPS : Port 443
+(echo "Hello HTTPS, from Kali at : $(date)" | nc 192.168.0.49 443) &
+
+# 3. SSH : Port 22
+(echo "Hello SSH, from Kali at : $(date)" | nc 192.168.0.49 22) &
+
+# 4. RDP : Port 3389
+(echo "Hello RDP, from Kali at : $(date)" | nc 192.168.0.49 3389) &
+
+# 5. Python Server : Port 2482
+(echo "Hello Python Server, from Kali at : $(date)" | nc 192.168.0.49 2482)

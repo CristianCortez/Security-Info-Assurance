@@ -1,0 +1,110 @@
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-04-21 04:23 EDT
+NSE: Loaded 155 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 04:23
+Completed NSE at 04:23, 0.00s elapsed
+Initiating NSE at 04:23
+Completed NSE at 04:23, 0.00s elapsed
+Initiating NSE at 04:23
+Completed NSE at 04:23, 0.00s elapsed
+Initiating ARP Ping Scan at 04:23
+Scanning 192.168.0.49 [1 port]
+Completed ARP Ping Scan at 04:23, 0.05s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 04:23
+Completed Parallel DNS resolution of 1 host. at 04:23, 0.04s elapsed
+Initiating SYN Stealth Scan at 04:23
+Scanning 192.168.0.49 [65535 ports]
+Discovered open port 443/tcp on 192.168.0.49
+Discovered open port 3389/tcp on 192.168.0.49
+Discovered open port 80/tcp on 192.168.0.49
+Discovered open port 22/tcp on 192.168.0.49
+Discovered open port 2482/tcp on 192.168.0.49
+Completed SYN Stealth Scan at 04:23, 1.90s elapsed (65535 total ports)
+Initiating Service scan at 04:23
+Scanning 5 services on 192.168.0.49
+Completed Service scan at 04:23, 1.02s elapsed (5 services on 1 host)
+Initiating OS detection (try #1) against 192.168.0.49
+NSE: Script scanning 192.168.0.49.
+Initiating NSE at 04:23
+Completed NSE at 04:24, 16.46s elapsed
+Initiating NSE at 04:24
+Completed NSE at 04:24, 2.05s elapsed
+Initiating NSE at 04:24
+Completed NSE at 04:24, 0.00s elapsed
+Nmap scan report for 192.168.0.49
+Host is up (0.00031s latency).
+Not shown: 65530 closed tcp ports (reset)
+PORT     STATE SERVICE        VERSION
+22/tcp   open  ssh?
+| fingerprint-strings: 
+|   NULL: 
+|_    Fri Apr 21 01:21:48 AM PDT 2023
+80/tcp   open  http
+| fingerprint-strings: 
+|   NULL: 
+|     HTTP/1.1 200 OK
+|_    01:21:48 AM PDT 2023
+| http-methods: 
+|_  Supported Methods: GET POST
+|_http-favicon: Unknown favicon MD5: 60AEAD2563C0F15298AD5D5E63FB2C8E
+443/tcp  open  https?
+| fingerprint-strings: 
+|   NULL: 
+|     HTTPS/1.1 200 OK
+|_    01:21:48 AM PDT 2023
+2482/tcp open  giop-ssl?
+| fingerprint-strings: 
+|   NULL: 
+|     Serving HTTP on 0.0.0.0 port 2482 (http://0.0.0.0:2482/) ...
+|_    01:21:48 AM PDT 2023
+3389/tcp open  ms-wbt-server?
+| fingerprint-strings: 
+|   NULL: 
+|     RDP/1.1 200 OK
+|_    01:21:48 AM PDT 2023
+5 services unrecognized despite returning data. If you know the service/version, please submit the following fingerprints at https://nmap.org/cgi-bin/submit.cgi?new-service :
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port22-TCP:V=7.93%I=7%D=4/21%Time=64424812%P=x86_64-pc-linux-gnu%r(NULL
+SF:,21,"\x20Fri\x20Apr\x2021\x2001:21:48\x20AM\x20PDT\x202023\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port80-TCP:V=7.93%I=7%D=4/21%Time=64424812%P=x86_64-pc-linux-gnu%r(NULL
+SF:,32,"HTTP/1\.1\x20200\x20OK\n\n\x20Fri\x20Apr\x2021\x2001:21:48\x20AM\x
+SF:20PDT\x202023\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port443-TCP:V=7.93%I=7%D=4/21%Time=64424812%P=x86_64-pc-linux-gnu%r(NUL
+SF:L,33,"HTTPS/1\.1\x20200\x20OK\n\n\x20Fri\x20Apr\x2021\x2001:21:48\x20AM
+SF:\x20PDT\x202023\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port2482-TCP:V=7.93%I=7%D=4/21%Time=64424812%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,5F,"Serving\x20HTTP\x20on\x200\.0\.0\.0\x20port\x202482\x20\(http://
+SF:0\.0\.0\.0:2482/\)\x20\.\.\.\n\n\x20Fri\x20Apr\x2021\x2001:21:48\x20AM\
+SF:x20PDT\x202023\n");
+==============NEXT SERVICE FINGERPRINT (SUBMIT INDIVIDUALLY)==============
+SF-Port3389-TCP:V=7.93%I=7%D=4/21%Time=64424812%P=x86_64-pc-linux-gnu%r(NU
+SF:LL,31,"RDP/1\.1\x20200\x20OK\n\n\x20Fri\x20Apr\x2021\x2001:21:48\x20AM\
+SF:x20PDT\x202023\n");
+MAC Address: 00:27:13:B2:19:32 (Universal Global Scientific Industrial)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.6
+Uptime guess: 37.093 days (since Wed Mar 15 02:09:31 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=258 (Good luck!)
+IP ID Sequence Generation: All zeros
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   0.31 ms 192.168.0.49
+
+NSE: Script Post-scanning.
+Initiating NSE at 04:24
+Completed NSE at 04:24, 0.00s elapsed
+Initiating NSE at 04:24
+Completed NSE at 04:24, 0.00s elapsed
+Initiating NSE at 04:24
+Completed NSE at 04:24, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 23.72 seconds
+           Raw packets sent: 65558 (2.885MB) | Rcvd: 65550 (2.623MB)

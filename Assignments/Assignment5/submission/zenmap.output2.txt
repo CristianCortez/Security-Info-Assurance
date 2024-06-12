@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml-stylesheet href="file:///usr/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?><nmaprun start="1679185673" profile_name="Ping scan" xmloutputversion="1.04" scanner="nmap" version="7.92" startstr="Sun Mar 19 00:27:53 2023" args="nmap -sn 192.168.0.43"><verbose level="0"></verbose><debugging level="0"></debugging><output type="interactive">Starting Nmap 7.92 ( https://nmap.org ) at 2023-03-19 00:27 UTC
+Nmap scan report for 192.168.0.43
+Host is up (0.26s latency).
+MAC Address: 00:26:C6:BE:3D:C0 (Intel Corporate)
+Nmap done: 1 IP address (1 host up) scanned in 0.54 seconds
+</output><host comment=""><status state="up"></status><address addrtype="ipv4" vendor="" addr="192.168.0.43"></address><address addrtype="mac" vendor="Intel Corporate" addr="00:26:C6:BE:3D:C0"></address><hostnames></hostnames><ports></ports><os></os><uptime lastboot="" seconds=""></uptime><tcpsequence index="" values="" difficulty=""></tcpsequence><ipidsequence values="" class=""></ipidsequence><tcptssequence values="" class=""></tcptssequence></host><runstats><finished timestr="Sun Mar 19 00:27:54 2023" time="1679185674"></finished><hosts down="0" total="1" up="1"></hosts></runstats></nmaprun>

@@ -1,0 +1,63 @@
+Starting Nmap 7.93 ( https://nmap.org ) at 2023-03-15 23:55 EDT
+NSE: Loaded 155 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 23:55
+Completed NSE at 23:55, 0.00s elapsed
+Initiating NSE at 23:55
+Completed NSE at 23:55, 0.00s elapsed
+Initiating NSE at 23:55
+Completed NSE at 23:55, 0.00s elapsed
+Initiating ARP Ping Scan at 23:55
+Scanning 192.168.0.43 [1 port]
+Completed ARP Ping Scan at 23:55, 0.08s elapsed (1 total hosts)
+Initiating Parallel DNS resolution of 1 host. at 23:55
+Completed Parallel DNS resolution of 1 host. at 23:55, 0.19s elapsed
+Initiating SYN Stealth Scan at 23:55
+Scanning 192.168.0.43 [1000 ports]
+Discovered open port 22/tcp on 192.168.0.43
+Completed SYN Stealth Scan at 23:55, 0.16s elapsed (1000 total ports)
+Initiating Service scan at 23:55
+Scanning 1 service on 192.168.0.43
+Completed Service scan at 23:55, 0.03s elapsed (1 service on 1 host)
+Initiating OS detection (try #1) against 192.168.0.43
+NSE: Script scanning 192.168.0.43.
+Initiating NSE at 23:55
+Completed NSE at 23:55, 0.31s elapsed
+Initiating NSE at 23:55
+Completed NSE at 23:55, 0.00s elapsed
+Initiating NSE at 23:55
+Completed NSE at 23:55, 0.00s elapsed
+Nmap scan report for 192.168.0.43
+Host is up (0.0054s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT   STATE SERVICE VERSION
+22/tcp open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+| ssh-hostkey: 
+|   256 4c93b0ae099f56a5300722fe257b9e6c (ECDSA)
+|_  256 37aee3e4bf69348c53b2c2350bd74825 (ED25519)
+MAC Address: 00:26:C6:BE:3D:C0 (Intel Corporate)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.6
+Uptime guess: 8.836 days (since Tue Mar  7 02:52:09 2023)
+Network Distance: 1 hop
+TCP Sequence Prediction: Difficulty=262 (Good luck!)
+IP ID Sequence Generation: All zeros
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+TRACEROUTE
+HOP RTT     ADDRESS
+1   5.36 ms 192.168.0.43
+
+NSE: Script Post-scanning.
+Initiating NSE at 23:55
+Completed NSE at 23:55, 0.00s elapsed
+Initiating NSE at 23:55
+Completed NSE at 23:55, 0.00s elapsed
+Initiating NSE at 23:55
+Completed NSE at 23:55, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 3.18 seconds
+           Raw packets sent: 1023 (45.806KB) | Rcvd: 1015 (41.282KB)

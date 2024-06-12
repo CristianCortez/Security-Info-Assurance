@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<?xml-stylesheet href="file:///usr/local/bin/../share/nmap/nmap.xsl" type="text/xsl"?><nmaprun start="1679185731" profile_name="Quick scan plus" xmloutputversion="1.04" scanner="nmap" version="7.92" startstr="Sun Mar 19 00:28:51 2023" args="nmap -sV -T4 -O -F --version-light 192.168.0.43"><scaninfo services="7,9,13,21-23,25-26,37,53,79-81,88,106,110-111,113,119,135,139,143-144,179,199,389,427,443-445,465,513-515,543-544,548,554,587,631,646,873,990,993,995,1025-1029,1110,1433,1720,1723,1755,1900,2000-2001,2049,2121,2717,3000,3128,3306,3389,3986,4899,5000,5009,5051,5060,5101,5190,5357,5432,5631,5666,5800,5900,6000-6001,6646,7070,8000,8008-8009,8080-8081,8443,8888,9100,9999-10000,32768,49152-49157" protocol="tcp" numservices="100" type="syn"></scaninfo><verbose level="0"></verbose><debugging level="0"></debugging><output type="interactive">Starting Nmap 7.92 ( https://nmap.org ) at 2023-03-19 00:28 UTC
+Nmap scan report for 192.168.0.43
+Host is up (0.0056s latency).
+Not shown: 98 closed tcp ports (reset)
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 8.9p1 Ubuntu 3ubuntu0.1 (Ubuntu Linux; protocol 2.0)
+8000/tcp open  http    SimpleHTTPServer 0.6 (Python 3.10.6)
+MAC Address: 00:26:C6:BE:3D:C0 (Intel Corporate)
+Device type: general purpose
+Running: Linux 4.X|5.X
+OS CPE: cpe:/o:linux:linux_kernel:4 cpe:/o:linux:linux_kernel:5
+OS details: Linux 4.15 - 5.6
+Network Distance: 1 hop
+Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 8.36 seconds
+</output><host comment=""><status state="up"></status><address addrtype="ipv4" vendor="" addr="192.168.0.43"></address><address addrtype="mac" vendor="Intel Corporate" addr="00:26:C6:BE:3D:C0"></address><hostnames></hostnames><ports><extraports count="98" state="closed"></extraports><port protocol="tcp" portid="22"><state reason="syn-ack" state="open" reason_ttl="64"></state><service product="OpenSSH" name="ssh" extrainfo="Ubuntu Linux; protocol 2.0" version="8.9p1 Ubuntu 3ubuntu0.1" conf="10" method="probed"></service></port><port protocol="tcp" portid="8000"><state reason="syn-ack" state="open" reason_ttl="64"></state><service product="SimpleHTTPServer" name="http" extrainfo="Python 3.10.6" version="0.6" conf="10" method="probed"></service></port></ports><os><portused state="open" portid="22" proto="tcp"></portused><portused state="closed" portid="7" proto="tcp"></portused><portused state="closed" portid="33660" proto="udp"></portused><osmatch line="67241" name="Linux 4.15 - 5.6" accuracy="100"><osclass type="general purpose" osfamily="Linux" vendor="Linux" osgen="5.X" accuracy="100"></osclass></osmatch></os><uptime lastboot="Sat Feb 11 20:46:00 2023" seconds="3037379"></uptime><tcpsequence index="261" values="5A5C8BD6,FA3BDBFD,E9E41DF0,C7B83BE0,70EF3EB6,719F4055" difficulty="Good luck!"></tcpsequence><ipidsequence values="0,0,0,0,0,0" class="All zeros"></ipidsequence><tcptssequence values="B50AB807,B50AB86E,B50AB8D3,B50AB936,B50AB99E,B50ABA06" class="1000HZ"></tcptssequence></host><runstats><finished timestr="Sun Mar 19 00:28:59 2023" time="1679185739"></finished><hosts down="0" total="1" up="1"></hosts></runstats></nmaprun>
