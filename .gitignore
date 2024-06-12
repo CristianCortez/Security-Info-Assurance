@@ -1,6 +1,16 @@
 *.ini
 *.url
+# disk images are large files. I tried to commit a few isos, 
+# and git push would hang. Eventually resolved this by checking
+# project size with command
+# du -sh .git
+# which returned 4.9G with iso
+# without iso, project size is 89M
+# git push limits projects to 2G or less
+#  work around this with git lfs "Large file storage"
+# or do what I did and ignore the iso completely
 *.iso
+# maybe i can add them after the initial remote push...
 KALI_SHARED/
 Tests/
 my stuff/
